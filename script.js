@@ -38,23 +38,4 @@ document.addEventListener('DOMContentLoaded', () => {
         // Trigger once to set initial state if page is loaded already scrolled
         window.dispatchEvent(new Event('scroll'));
     }
-
-    // AI Tabs Switching Logic
-    const tabBtns = document.querySelectorAll('.ai-tab-btn');
-    const tabPanes = document.querySelectorAll('.ai-tab-pane');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active from all tabs
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabPanes.forEach(p => p.classList.remove('active'));
-
-            // Add active to clicked tab
-            btn.classList.add('active');
-
-            // Show corresponding pane
-            const targetId = btn.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
-        });
-    });
 });
