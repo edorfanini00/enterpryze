@@ -38,4 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Trigger once to set initial state if page is loaded already scrolled
         window.dispatchEvent(new Event('scroll'));
     }
+
+    // Accordion Logic
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+
+            // Optional: Close all other accordion items (uncomment if desired)
+            // document.querySelectorAll('.accordion-item').forEach(otherItem => {
+            //     if (otherItem !== item) {
+            //         otherItem.classList.remove('active');
+            //     }
+            // });
+
+            item.classList.toggle('active');
+        });
+    });
 });
