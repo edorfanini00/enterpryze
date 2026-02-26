@@ -1269,11 +1269,13 @@ body {
 .hih-steps::before {
     content: '';
     position: absolute;
-    top: 24px;
-    bottom: 84px;
-    left: 20px;
+    top: 32px;
+    /* Starts exactly at center of first dot */
+    bottom: 0px;
+    left: 53px;
+    /* Centers behind the dot (32px padding + 21px center) */
     width: 2px;
-    background: #F3F4F6;
+    background: linear-gradient(to bottom, #8A2BE2 0%, #FF6B00 100%);
     z-index: 0;
 }
 
