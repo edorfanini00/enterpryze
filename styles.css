@@ -1269,11 +1269,9 @@ body {
 .hih-steps::before {
     content: '';
     position: absolute;
-    top: 32px;
-    /* Starts exactly at center of first dot */
-    bottom: 0px;
-    left: 53px;
-    /* Centers behind the dot (32px padding + 21px center) */
+    top: 10px;
+    bottom: 10px;
+    left: -40px;
     width: 2px;
     background: linear-gradient(to bottom, #8A2BE2 0%, #FF6B00 100%);
     z-index: 0;
@@ -1755,6 +1753,10 @@ body {
     .hih-grid {
         grid-template-columns: 1fr;
         gap: 60px;
+    }
+
+    .hih-steps::before {
+        display: none;
     }
 
     .stats-pill-grid {
