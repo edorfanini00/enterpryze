@@ -2834,6 +2834,32 @@ body {
         font-size: 28px !important;
     }
 
+    .hide-on-mobile {
+        display: none !important;
+    }
+
+    /* perfectly center the avatars and text below the hero */
+    .hero-stats {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-top: 20px !important;
+    }
+
+    .stats-text {
+        text-align: center !important;
+    }
+
+    .stats-text h2 {
+        font-size: 36px !important;
+    }
+
+    .avatars-group {
+        justify-content: center;
+        margin-left: 15px;
+        /* offset the negative margin of the children to center correctly */
+    }
+
     /* Disable stack overlap on mobile to prevent squishing */
     .s-card {
         position: static !important;
