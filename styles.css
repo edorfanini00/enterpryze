@@ -2861,15 +2861,24 @@ body {
     }
 
     /* Disable stack overlap on mobile to prevent squishing */
-    .s-card {
+    .s-card,
+    .hih-step {
         position: static !important;
         min-height: auto !important;
+        height: auto !important;
         margin-bottom: 24px;
+        opacity: 1 !important;
     }
 
-    .s-card:nth-child(n) {
+    .s-card:nth-child(n),
+    .hih-step:nth-child(n) {
         top: auto !important;
         z-index: auto !important;
+    }
+
+    .hih-steps {
+        min-height: auto !important;
+        height: auto !important;
     }
 
     /* Shrink the Visuals/padding in cards so they fit normal phones */
