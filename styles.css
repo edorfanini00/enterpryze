@@ -2934,4 +2934,46 @@ body {
     .t-rating {
         justify-content: center !important;
     }
+
+    /* REORDER HERO ELEMENTS & SMALLER PARTNERSHIPS TEXT */
+    .hero-container {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .hero-content {
+        display: contents !important;
+    }
+
+    .hero-left {
+        display: contents !important;
+    }
+
+    .hero-title:not(.hide-on-mobile) {
+        order: 1 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-center-image-wrapper {
+        order: 2 !important;
+        margin: 20px auto 30px !important;
+    }
+
+    .hero-cta-wrap:not(.hide-on-mobile) {
+        order: 3 !important;
+        margin-bottom: 40px !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-right {
+        order: 4 !important;
+    }
+
+    /* Shrink the footer/hero divider text */
+    .partnerships p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        padding: 0 16px;
+    }
 }
