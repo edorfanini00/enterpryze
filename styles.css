@@ -2816,3 +2816,96 @@ body {
     color: #111;
     font-weight: 600;
 }
+
+/* ========================================================
+   COMPREHENSIVE MOBILE OVERRIDES
+   ======================================================== */
+@media (max-width: 768px) {
+
+    /* Override inline massive font sizes directly */
+    h1[style*="font-size: 52px"],
+    h2[style*="font-size: 52px"],
+    h2[style*="font-size: 56px"] {
+        font-size: 36px !important;
+        line-height: 1.2 !important;
+    }
+
+    span[style*="font-size: 40px"] {
+        font-size: 28px !important;
+    }
+
+    /* Disable stack overlap on mobile to prevent squishing */
+    .s-card {
+        position: static !important;
+        min-height: auto !important;
+        margin-bottom: 24px;
+    }
+
+    .s-card:nth-child(n) {
+        top: auto !important;
+        z-index: auto !important;
+    }
+
+    /* Shrink the Visuals/padding in cards so they fit normal phones */
+    .s-content {
+        padding: 40px 24px !important;
+    }
+
+    .s-visual {
+        padding: 40px 0 !important;
+        overflow: hidden;
+    }
+
+    /* Let the inner widgets scale instead of overflowing horizontally */
+    .table-ui,
+    .timeline-ui,
+    .hub-ui {
+        width: 100% !important;
+        max-width: 330px !important;
+        margin: 0 auto;
+        padding: 20px !important;
+        box-sizing: border-box;
+    }
+
+    .table-row {
+        font-size: 11px !important;
+    }
+
+    /* Ensure the case study background fits better */
+    .custom-stats-section>div[style*="background-image"] {
+        padding: 60px 0 !important;
+        border-radius: 32px !important;
+    }
+
+    .solution-caption[style*="font-size: 14px"] {
+        font-size: 12px !important;
+    }
+
+    /* Clean up the Stats section pills on mobile */
+    .decorative-pill {
+        display: none !important;
+    }
+
+    .pill-card {
+        padding: 24px !important;
+    }
+
+    .stat-large {
+        font-size: 36px !important;
+    }
+
+    /* Fix the testimonial scrolling wrapper */
+    .t-container {
+        flex-direction: column !important;
+    }
+
+    .t-left {
+        padding-right: 0 !important;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .t-rating {
+        justify-content: center !important;
+    }
+}
