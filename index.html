@@ -965,56 +965,67 @@
 
             if (!steps.length || !visual || !section) return;
 
-            // Start by pushing steps 2 and 3 down out of view
-            gsap.set(steps[0], { y: 0 });
-            gsap.set(steps.slice(1), { y: () => window.innerHeight });
+            let mm = gsap.matchMedia();
 
-            steps.forEach(s => { s.classList.remove('step-active'); s.classList.add('step-muted'); });
-            steps[0].classList.add('step-active');
-            steps[0].classList.remove('step-muted');
+            mm.add("(min-width: 769px)", () => {
+                // Start by pushing steps 2 and 3 down out of view
+                gsap.set(steps[0], { y: 0 });
+                gsap.set(steps.slice(1), { y: () => window.innerHeight });
 
-            // Function to handle active state
-            const setActive = (index) => {
-                steps.forEach((s, i) => {
-                    if (i === index) {
-                        s.classList.add('step-active');
-                        s.classList.remove('step-muted');
-                    } else {
-                        s.classList.remove('step-active');
-                        s.classList.add('step-muted');
+                steps.forEach(s => { s.classList.remove('step-active'); s.classList.add('step-muted'); });
+                steps[0].classList.add('step-active');
+                steps[0].classList.remove('step-muted');
+
+                // Function to handle active state
+                const setActive = (index) => {
+                    steps.forEach((s, i) => {
+                        if (i === index) {
+                            s.classList.add('step-active');
+                            s.classList.remove('step-muted');
+                        } else {
+                            s.classList.remove('step-active');
+                            s.classList.add('step-muted');
+                        }
+                    });
+                };
+
+                // 1. Pin the entire section so scrolling stops while cards animate
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "center center",
+                        end: "+=400%", // Increased scroll distance for the pin
+                        pin: true,
+                        scrub: 1
                     }
                 });
-            };
 
-            // 1. Pin the entire section so scrolling stops while cards animate
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: section,
-                    start: "center center",
-                    end: "+=400%", // Increased scroll distance for the pin
-                    pin: true,
-                    scrub: 1
-                }
+                // 2. Animate Step 2 stacking up, then toggle classes near the end
+                tl.to(steps[1], { y: 0, duration: 1 })
+                    .to({}, {
+                        duration: 0.01,
+                        onStart: () => setActive(1),
+                        onReverseComplete: () => setActive(0)
+                    }, "-=0.15") // Triggers when the slide is 85% complete
+
+                    // 3. Animate Step 3 stacking up, then toggle classes near the end
+                    .to(steps[2], { y: 0, duration: 1 })
+                    .to({}, {
+                        duration: 0.01,
+                        onStart: () => setActive(2),
+                        onReverseComplete: () => setActive(1)
+                    }, "-=0.15")
+
+                    // 4. Add a large buffer at the end so it stays pinned for a longer moment while fully stacked
+                    .to({}, { duration: 1.5 });
             });
 
-            // 2. Animate Step 2 stacking up, then toggle classes near the end
-            tl.to(steps[1], { y: 0, duration: 1 })
-                .to({}, {
-                    duration: 0.01,
-                    onStart: () => setActive(1),
-                    onReverseComplete: () => setActive(0)
-                }, "-=0.15") // Triggers when the slide is 85% complete
-
-                // 3. Animate Step 3 stacking up, then toggle classes near the end
-                .to(steps[2], { y: 0, duration: 1 })
-                .to({}, {
-                    duration: 0.01,
-                    onStart: () => setActive(2),
-                    onReverseComplete: () => setActive(1)
-                }, "-=0.15")
-
-                // 4. Add a large buffer at the end so it stays pinned for a longer moment while fully stacked
-                .to({}, { duration: 1.5 });
+            mm.add("(max-width: 768px)", () => {
+                // For mobile, disable pinning because the container is taller than the screen.
+                // Reset all states allowing normal fluid scrolling.
+                gsap.set(steps, { y: 0, clearProps: "all" });
+                steps.forEach(s => { s.classList.add('step-active'); s.classList.remove('step-muted'); });
+            });
         });
     </script>
 </body>

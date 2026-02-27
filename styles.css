@@ -2959,15 +2959,16 @@ body {
         margin: 20px auto 30px !important;
     }
 
-    .hero-cta-wrap:not(.hide-on-mobile) {
+    .hero-right {
         order: 3 !important;
-        margin-bottom: 40px !important;
-        display: flex;
-        justify-content: center;
     }
 
-    .hero-right {
+    .hero-cta-wrap:not(.hide-on-mobile) {
         order: 4 !important;
+        margin-top: 50px !important;
+        margin-bottom: 100px !important;
+        display: flex;
+        justify-content: center;
     }
 
     /* Shrink the footer/hero divider text */
