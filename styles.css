@@ -1812,9 +1812,16 @@ body {
         padding: 80px 0 !important;
     }
 
+    .hih-cta-wrapper {
+        padding-left: 0 !important;
+        display: flex;
+        justify-content: center;
+        margin-top: 40px !important;
+    }
+
     .hih-cta {
-        margin-left: -64px;
-        margin-top: 12px;
+        margin-left: 0;
+        margin-top: 0;
     }
 
     /* Fixes for mobile layout scaling */
