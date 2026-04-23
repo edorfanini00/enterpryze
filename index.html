@@ -34,8 +34,7 @@
             <a href="#" class="nav-link">Blog</a>
         </div>
 
-        <button class="nav-cta"
-            onclick="window.open('https://api.leadconnectorhq.com/widget/booking/HgdG5EXfLBATJbMS6fcf', '_blank')">Continue</button>
+        <button class="nav-cta" onclick="openFormModal()">Continue</button>
     </nav>
 
     <!-- Hero Section -->
@@ -59,7 +58,7 @@
 
                 <div class="hero-cta-wrap">
                     <div class="pill-cta-container"
-                        onclick="window.open('https://api.leadconnectorhq.com/widget/booking/HgdG5EXfLBATJbMS6fcf', '_blank')"
+                        onclick="openFormModal()"
                         style="cursor: pointer;">
                         <span class="cta-text">Continue</span>
                         <div class="cta-arrow-circle">
@@ -85,7 +84,7 @@
 
                 <div class="hero-cta-wrap hide-on-mobile" style="margin-top: 0; margin-bottom: 20px;">
                     <div class="pill-cta-container"
-                        onclick="window.open('https://api.leadconnectorhq.com/widget/booking/HgdG5EXfLBATJbMS6fcf', '_blank')"
+                        onclick="openFormModal()"
                         style="cursor: pointer; flex-direction: row-reverse; padding: 6px 24px 6px 6px; gap: 24px;">
                         <span class="cta-text" style="margin: 0;">Continue</span>
                         <div class="cta-arrow-circle">
@@ -182,7 +181,7 @@
                     </div>
 
                     <div class="hih-cta-wrapper" style="margin-top: 24px; padding-left: 64px;">
-                        <a href="https://api.leadconnectorhq.com/widget/booking/HgdG5EXfLBATJbMS6fcf" target="_blank"
+                        <a href="javascript:void(0)" onclick="openFormModal()"
                             class="hih-cta">Continue</a>
                     </div>
                 </div>
@@ -332,8 +331,8 @@
                             </li>
                         </ul>
                         <div style="margin-top: 32px;">
-                            <a href="https://api.leadconnectorhq.com/widget/booking/HgdG5EXfLBATJbMS6fcf"
-                                target="_blank" class="hih-cta">Continue</a>
+                            <a href="javascript:void(0)" onclick="openFormModal()"
+                                class="hih-cta">Continue</a>
                         </div>
                     </div>
                     <div class="s-visual visual-bg-3">
@@ -519,7 +518,7 @@
             </div>
 
             <button class="cs-cta" style="border: none; cursor: pointer; gap: 12px; font-family: inherit;"
-                onclick="window.open('https://api.leadconnectorhq.com/widget/booking/HgdG5EXfLBATJbMS6fcf', '_blank')">
+                onclick="openFormModal()">
                 Continue
                 <div class="cta-arrow-circle" style="background-color: white; width: 32px; height: 32px;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -942,7 +941,7 @@
                 <h2>Ready to get started?</h2>
                 <button class="cs-cta mt-8"
                     style="border: none; cursor: pointer; gap: 12px; font-family: inherit; margin-top: 2rem;"
-                    onclick="window.open('https://api.leadconnectorhq.com/widget/booking/HgdG5EXfLBATJbMS6fcf', '_blank')">
+                    onclick="openFormModal()">
                     Continue
                     <div class="cta-arrow-circle" style="background-color: white; width: 32px; height: 32px;">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -954,6 +953,32 @@
             </div>
         </div>
     </section>
+
+    <!-- Form Modal -->
+    <div id="formModal" class="form-modal-overlay" onclick="closeFormModal(event)">
+        <div class="form-modal-container">
+            <button class="form-modal-close" onclick="closeFormModal(event)" aria-label="Close form">&times;</button>
+            <iframe
+                src="https://api.leadconnectorhq.com/widget/form/3GLrfDnHTStYkXeKi2AS"
+                style="width: 100%; height: 100%; border: none;"
+                id="inline-3GLrfDnHTStYkXeKi2AS"
+                data-layout="{'id':'INLINE'}'"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Enterpryze Form"
+                data-height="600"
+                data-layout-iframe-id="inline-3GLrfDnHTStYkXeKi2AS"
+                data-form-id="3GLrfDnHTStYkXeKi2AS"
+                title="Enterpryze Form"
+                loading="lazy"
+            ></iframe>
+            <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -1061,7 +1086,7 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
-        "url": "https://api.leadconnectorhq.com/widget/booking/HgdG5EXfLBATJbMS6fcf"
+        "url": "https://api.leadconnectorhq.com/widget/form/3GLrfDnHTStYkXeKi2AS"
       }
     }
     </script>

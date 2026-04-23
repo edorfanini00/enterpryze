@@ -1,3 +1,33 @@
+// Form Modal Functions (global scope so onclick attributes can access them)
+function openFormModal() {
+    const modal = document.getElementById('formModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    }
+}
+
+function closeFormModal(e) {
+    const modal = document.getElementById('formModal');
+    // Close only if clicking the overlay backdrop or the close button
+    if (e && e.target !== modal && !e.target.classList.contains('form-modal-close')) return;
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('formModal');
+        if (modal && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+    }
+});
+
 // Basic interactions for the new finance landing page
 document.addEventListener('DOMContentLoaded', () => {
     // Smooth hover effects for buttons
